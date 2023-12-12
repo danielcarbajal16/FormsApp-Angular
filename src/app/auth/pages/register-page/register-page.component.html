@@ -18,7 +18,7 @@
                 <label class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-9">
                     <input type="email" class="form-control" placeholder="Email del usuario" formControlName="email">
-                    <span *ngIf="isValidField('email')" class="form-text text-danger">mensaje de error del email</span>
+                    <span *ngIf="isValidField('email')" class="form-text text-danger">{{ errorMessage('email') }}</span>
                 </div>
             </div>
 
@@ -27,7 +27,7 @@
                 <label class="col-sm-3 col-form-label">Username</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" placeholder="Nombre código del usuario" formControlName="username">
-                    <span *ngIf="isValidField('username')" class="form-text text-danger">El username no puede ser Strider</span>
+                    <span *ngIf="isValidField('username')" class="form-text text-danger">{{ errorMessage('username') }}</span>
                 </div>
             </div>
 
@@ -36,7 +36,7 @@
                 <label class="col-sm-3 col-form-label">Password</label>
                 <div class="col-sm-9">
                     <input type="password" class="form-control" placeholder="Password de su cuenta" formControlName="password">
-                    <span *ngIf="isValidField('password')" class="form-text text-danger">La contraseña debe de ser mayor de 6 caracteres.</span>
+                    <span *ngIf="isValidField('password')" class="form-text text-danger">{{ errorMessage('password') }}</span>
                 </div>
             </div>
 
@@ -45,7 +45,7 @@
                 <label class="col-sm-3 col-form-label">Confirmar</label>
                 <div class="col-sm-9">
                     <input type="password" class="form-control" placeholder="Confirmar la contraseña" formControlName="password2">
-                    <span *ngIf="isValidField('password2')" class="form-text text-danger">Las contraseñas deben de ser iguales</span>
+                    <span *ngIf="isValidField('password2')" class="form-text text-danger">{{ errorMessage('password2') }}</span>
                 </div>
             </div>
 
@@ -74,7 +74,7 @@
 <pre>{{ myForm.controls['username'].errors | json }}</pre>
 
 <h5>Password</h5>
-<pre>{{ myForm.value.password | json }}</pre>
+<pre>{{ myForm.controls['password'].errors | json }}</pre>
 
 <h5>Confirmar</h5>
-<pre>{{ myForm.value.password2 | json }}</pre>
+<pre>{{ myForm.controls['password2'].errors | json }}</pre>
